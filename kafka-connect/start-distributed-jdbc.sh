@@ -1,0 +1,2 @@
+#/bin/sh
+curl -X POST -H "Content-Type: application/json" --data '{"name": "postgres-source", "config": {"connector.class":"io.confluent.connect.jdbc.JdbcSourceConnector", "tasks.max":"2", "connection.url":"jdbc:postgresql://localhost/postgres?user=postgres", "mode":"incrementing", "table.whitelist":"message", "timestamp.column.name":"date", "incrementing.column.name":"id", "topic.prefix":"table-" }}' http://localhost:8085/connectors
